@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link th:href="@{/css/main.css}" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div class="topnav">
+      <a class="active" href="/">Home</a>
+      <a href="/shop">Shop</a>
+      <a href="#contact">Contact</a>
+      <a href="#about">About</a>
+    </div>
+
+    <section class="home" id="home">
+      <h1>Game Shop</h1>
+      <img th:src="@{/img/landingPageImage.jpg}" />
+    </section>
+    <h1 class="home-text">Explore the world of games</h1>
+    <div class="login-register">
+      <button class="login-button" onclick="document.location='register'">
+        Register
+      </button>
+      <button class="login-button" onclick="document.location='login'">
+        Login
+      </button>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,11 @@
+insert into game_list(id,description,genre,name,price)
+values(1,"Dota 2 is a multiplayer online battle arena video game developed and published by Valve. The game is a sequel to Defense of the Ancients, which was a community-created mod for Blizzard Entertainment's Warcraft III: Reign of Chaos.","Action/Multiplayer","Dota2","0 USD"),
+(2,"Valorant is a free-to-play first-person hero shooter developed and published by Riot Games, for Microsoft Windows.","Multiplayer","Valorant","0 USD") ,
+(3,"Sea of Thieves is a first-person action-adventure game. In the game, players explore an open world via a pirate ship","Adventure/Multiplayer","Sea of Thieves","6.49 USD") ,
+(4,"Grand Theft Auto Online is an online multiplayer action-adventure game","Multiplayer","Grand Theft Auto V","14.5 USD") ,
+(5,"Outlast is a first-person survival horror video game.The game revolves around a freelance investigative journalist, Miles Upshur, who decides to investigate a remote psychiatric hospital named Mount Massive Asylum, located deep in the mountains of Lake County, Colorado","Survival horror/Action game,","Outlast","8.19 USD") ,
+(6,"Minecraft is a sandbox video game developed by Mojang Studios.In Minecraft, players explore a blocky, procedurally generated 3D world with virtually infinite terrain, and may discover and extract raw materials, craft tools and items, and build structures, earthworks and simple machines.","Multiplayer/Survival","Minecraft","0"),
+(7,"Counter-Strike: Global Offensive is a 2012 multiplayer first-person shooter developed by Valve and Hidden Path Entertainment.","Multiplayer","CS:GO","0 USD") ,
+(8,"Apex Legends is a free-to-play battle royale-hero shooter game developed by Respawn Entertainment and published by Electronic Arts","Multiplayer","Apex Legends","0 USD") ,
+(9,"Tomb Raider, also known as Lara Croft: Tomb Raider between 2001 and 2008, is a media franchise that originated with an action-adventure video game series.","Action-adventure","Tomb Raider","8 USD"),
+(10,"Assassin's Creed is an action-adventure video game developed by Ubisoft Montreal and published by Ubisoft.","Action-adventure","Assassin's Creed","100 USD") ;

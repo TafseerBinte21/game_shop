@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link th:href="@{/css/search.css}" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div class="topnav">
+      <a href="/">Home</a>
+      <a href="/shop">Shop</a>
+      <a href="#contact">Contact</a>
+      <a href="#about">About</a>
+      <div class="wrap">
+        <form
+          class="search"
+          th:action="@{/search/}"
+          th:object="${game}"
+          method="post"
+        >
+          <input
+            type="text"
+            class="searchTerm"
+            placeholder="Search Game..."
+            name="game"
+          />
+          <button type="submit" class="searchButton">
+            <i class="fa fa-search"></i>
+          </button>
+        </form>
+      </div>
+      <div class="wrap_profile">
+        <form class="profile" th:action="@{/profile}">
+          <button type="submit" class="profileButton">
+            <i class="fa fa-user"></i>
+          </button>
+        </form>
+      </div>
+      <div class="wrap_logout">
+        <form class="logout" th:action="@{/logout}" method="post">
+          <button type="submit" class="logoutButton">
+            <i class="fa fa-sign-out"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div class="container">
+      <section class="home" id="home">
+        <h1>My wishlist</h1>
+      </section>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col" class="thumbnail">Thumbnail</th>
+            <th scope="col">Name</th>
+            <th scope="col">Genre</th>
+            <th scope="col">Price</th>
+            <th scope="col">Remove</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="aGame: ${games}">
+            <td class="align-middle">
+              <img class="img-thumbnail" th:src="@{${aGame.image}}" />
+            </td>
+            <td class="align-middle" th:text="${aGame.name}" />
+            <td class="align-middle" th:text="${aGame.genre}" />
+            <td class="align-middle" th:text="${aGame.price}" />
+            <td class="align-middle">
+              <a
+                class="btn btn-danger"
+                th:href="@{/wishlist/delete/{id}(id=${aGame.Id})}"
+                method="post"
+                ><i class="fa fa-minus-circle"></i
+              ></a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link th:href="@{/css/shop.css}" rel="stylesheet" />
+    <link th:href="@{/css/main.css}" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div class="topnav">
+      <a href="/">Home</a>
+      <a class="active" href="/shop">Shop</a>
+      <a href="#contact">Contact</a>
+      <a href="#about">About</a>
+      <div class="wrap">
+        <form
+          class="search"
+          th:action="@{/search/}"
+          th:object="${game}"
+          method="post"
+        >
+          <input
+            type="text"
+            class="searchTerm"
+            placeholder="Search Game..."
+            name="game"
+          />
+          <button type="submit" class="searchButton">
+            <i class="fa fa-search"></i>
+          </button>
+        </form>
+      </div>
+      <div class="wrap_profile">
+        <form class="profile" th:action="@{/profile}">
+          <button type="submit" class="profileButton">
+            <i class="fa fa-user"></i>
+          </button>
+        </form>
+      </div>
+      <div class="wrap_logout">
+        <form class="logout" th:action="@{/logout}" method="post">
+          <button type="submit" class="logoutButton">
+            <i class="fa fa-sign-out"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+    <div class="products">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 offset-lg-3">
+            <div class="section_title text-center">Welcome To Game Shop</div>
+          </div>
+        </div>
+
+        <div class="row products_row">
+          <div class="col-xl-4 col-md-6" th:each="aGame : ${games}">
+            <div class="product">
+              <div class="product_image">
+                <img
+                  th:src="@{${aGame.image}}"
+                  alt=""
+                  data-pagespeed-url-hash="263456151"
+                  onload="pagespeed.CriticalImages.checkImageForCriticality(this);"
+                />
+              </div>
+              <div class="product_content">
+                <div
+                  class="product_info d-flex flex-row align-items-start justify-content-start"
+                >
+                  <div>
+                    <div>
+                      <div class="product_name">
+                        <a
+                          th:href="@{'/game/'+${aGame.id}}"
+                          th:text="${aGame.name}"
+                        ></a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="ml-auto mt-auto mb-auto text-right">
+                    <div class="product_price text-right">
+                      $<span th:text="${aGame.price}">.99</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row load_more_row">
+          <div class="col">
+            <div class="load_more m-auto mr-auto">
+              <button
+                class="load_more-button"
+                onclick="document.location='shop'"
+              >
+                more...
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

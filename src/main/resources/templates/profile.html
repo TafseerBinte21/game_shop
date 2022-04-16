@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link th:href="@{/css/shop.css}" rel="stylesheet" />
+    <link th:href="@{/css/main.css}" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div class="topnav">
+      <a href="/">Home</a>
+      <a href="/shop">Shop</a>
+      <a href="#contact">Contact</a>
+      <a href="#about">About</a>
+      <div class="wrap">
+        <form
+          class="search"
+          th:action="@{/search/}"
+          th:object="${game}"
+          method="post"
+        >
+          <input
+            type="text"
+            class="searchTerm"
+            placeholder="Search Game..."
+            name="game"
+          />
+          <button type="submit" class="searchButton">
+            <i class="fa fa-search"></i>
+          </button>
+        </form>
+      </div>
+      <div class="wrap_profile">
+        <form class="profile" th:action="@{/profile}">
+          <button type="submit" class="profileButton">
+            <i class="fa fa-user"></i>
+          </button>
+        </form>
+      </div>
+      <div class="wrap_logout">
+        <form class="logout" th:action="@{/logout}" method="post">
+          <button type="submit" class="logoutButton">
+            <i class="fa fa-sign-out"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div class="products">
+      <div class="container">
+        <div class="row products_row">
+          <div class="col-xl-4 col-lg-4 col-md-4">
+            <div class="product_name profile_details ml-auto">
+              <a>Name</a>
+            </div>
+          </div>
+          <div class="col-xl-4 col-lg-4 col-md-4">
+            <div class="product_name profile_details mr-auto">
+              <a th:text="@{${user.name}}"></a>
+            </div>
+          </div>
+          <div class="col-xl-4 col-lg-4 col-md-4">
+            <form th:action="@{/library}">
+              <button class="login-button">Library</button>
+            </form>
+          </div>
+
+          <div class="col-xl-4 col-lg-4 col-md-4">
+            <div class="product_name profile_details ml-auto">
+              <a>Email</a>
+            </div>
+          </div>
+          <div class="col-xl-4 col-lg-4 col-md-4">
+            <div class="product_name profile_details mr-auto">
+              <a th:text="@{${user.email}}"></a>
+            </div>
+          </div>
+          <div class="col-xl-4 col-lg-4 col-md-4">
+            <form th:action="@{/wishlist}">
+              <button class="login-button">Wishlist</button>
+            </form>
+          </div>
+
+          <div class="col-xl-4 col-lg-4 col-md-4">
+            <div class="product_name profile_details ml-auto">
+              <a>Phone</a>
+            </div>
+          </div>
+          <div class="col-xl-4 col-lg-4 col-md-4">
+            <div class="product_name profile_details mr-auto">
+              <a th:text="@{${user.phone}}"></a>
+            </div>
+          </div>
+          <div class="col-xl-4 col-lg-4 col-md-4">
+            <form th:action="@{/cart}">
+              <button class="login-button">Cart</button>
+            </form>
+          </div>
+
+          <div class="col-xl-4 col-lg-4 col-md-4">
+            <div class="product_name profile_details ml-auto">
+              <a>Address</a>
+            </div>
+          </div>
+          <div class="col-xl-4 col-lg-4 col-md-4">
+            <div class="product_name profile_details mr-auto">
+              <a th:text="@{${user.address}}"></a>
+            </div>
+          </div>
+
+          <!-- <div class="login-register"></div> -->
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

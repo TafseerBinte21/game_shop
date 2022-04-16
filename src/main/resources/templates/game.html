@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link th:href="@{/css/main.css}" rel="stylesheet" />
+    <link th:href="@{/css/shop.css}" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div class="topnav">
+      <a href="/">Home</a>
+      <a href="/shop">Shop</a>
+      <a href="#contact">Contact</a>
+      <a href="#about">About</a>
+      <div class="wrap">
+        <form
+          class="search"
+          th:action="@{/search/}"
+          th:object="${game}"
+          method="post"
+        >
+          <input
+            type="text"
+            class="searchTerm"
+            placeholder="Search Game..."
+            name="game"
+          />
+          <button type="submit" class="searchButton">
+            <i class="fa fa-search"></i>
+          </button>
+        </form>
+      </div>
+      <div class="wrap_profile">
+        <form class="profile" th:action="@{/profile}">
+          <button type="submit" class="profileButton">
+            <i class="fa fa-user"></i>
+          </button>
+        </form>
+      </div>
+      <div class="wrap_logout">
+        <form class="logout" th:action="@{/logout}" method="post">
+          <button type="submit" class="logoutButton">
+            <i class="fa fa-sign-out"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div class="products">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 offset-lg-3">
+            <div class="section_title text-center">
+              <span th:text="${game.name}">game</span>
+            </div>
+          </div>
+        </div>
+
+        <iframe width="900" height="650" th:src="@{${game.video}}"> </iframe>
+
+        <h1
+          style="
+            text-align: left;
+            color: rgb(255, 121, 121);
+            font-size: 18px;
+            padding-left: 8px;
+            padding-top: 10px;
+          "
+        >
+          Genre: <span th:text="${game.genre}">genre</span>
+        </h1>
+        <h1
+          style="
+            text-align: left;
+            color: rgb(255, 121, 121);
+            font-size: 18px;
+            padding-left: 8px;
+          "
+        >
+          Description: <span th:text="${game.description}">description</span>
+        </h1>
+        <h1
+          style="
+            text-align: left;
+            color: rgb(255, 121, 121);
+            font-size: 18px;
+            padding-left: 8px;
+          "
+        >
+          Price: <span th:text="${game.price}">price</span>$
+        </h1>
+
+        <div class="login-register">
+          <form th:action="@{'/wishlist/add/'+${game.id}}" method="post">
+            <button class="login-button">Add to wishlist</button>
+          </form>
+          <form th:action="@{'/cart/add/'+${game.id}}" method="post">
+            <button class="login-button">Add to cart</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
