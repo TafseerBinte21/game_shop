@@ -39,6 +39,8 @@ public class Game {
 		this.video = video;
 	}
 
+
+
 	public Long getId() {
 		return id;
 	}

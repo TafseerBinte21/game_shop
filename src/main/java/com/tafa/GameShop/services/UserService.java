@@ -20,4 +20,13 @@ public interface UserService extends UserDetailsService {
 
 	void addGameByIdInCart(User user, Long valueOf);
 
+	
+
+	
+//	Boolean findbyEmail(String Email);
+
+	
+	
+	
+
 }

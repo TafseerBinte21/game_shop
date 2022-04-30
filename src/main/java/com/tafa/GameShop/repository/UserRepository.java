@@ -8,5 +8,7 @@ import com.tafa.GameShop.models.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 	User findByEmail(String email);
+	
+//	 Boolean findbyEmail(String Email);
 
 }

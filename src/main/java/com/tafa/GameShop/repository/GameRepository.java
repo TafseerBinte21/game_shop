@@ -20,4 +20,7 @@ public interface GameRepository extends JpaRepository<Game, Long> {
 	// Custom query
 	@Query(value = "select * from game_list s where s.name like :keyword%", nativeQuery = true)
 	List<Game> findByKeyword(@Param("keyword") String keyword);
+	
+//	@Query("SELECT CASE WHEN COUNT(s) > 0 THEN TRUE ELSE FALSE END FROM game_list s WHERE s.id = ?1")
+//    Boolean isGameExitsById(Long id);
 }

@@ -38,5 +38,10 @@ public class GameController {
         }
         return "game";
     }
+    
+	@GetMapping("/checkout")
+	public String ch() {
+		return "checkout";
+	}
 
 }

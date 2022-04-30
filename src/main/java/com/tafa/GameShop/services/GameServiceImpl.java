@@ -47,5 +47,10 @@ public class GameServiceImpl implements GameService {
 		List<Game> games = gRepository.findAll();
 		return games;
 	}
+	
+//	 @Override
+//	public Boolean isGameExitsById(Long id) {
+//		 return gRepository.isGameExitsById(id);
+//	 }
 
 }

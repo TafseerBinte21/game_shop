@@ -134,5 +134,12 @@ public class UserServiceImpl implements UserService, ApplicationContextAware, In
 		}
 
 	}
+	
+//	 @Override
+//		public Boolean  findbyEmail(String Email) {
+//			 return userRepository.findbyEmail(Email);
+//		 }
+	 
+	
 
 }
